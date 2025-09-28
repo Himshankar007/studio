@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,12 +8,17 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { monasteries } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { cn } from '@/lib/utils';
-import { MapPin, Calendar, Clock, Utensils, Bed } from 'lucide-react';
+import { MapPin, Calendar, Clock, Utensils, Bed, Volume2, Loader2 } from 'lucide-react';
+import { textToSpeech } from '@/ai/flows/smart-audio-guide';
+import { useToast } from '@/hooks/use-toast';
 
 type Monastery = typeof monasteries[0];
 
 export function MonasteryMap() {
   const [selectedMonastery, setSelectedMonastery] = useState<Monastery | null>(monasteries[0] || null);
+  const [isAudioLoading, startAudioTransition] = useTransition();
+  const [audioSrc, setAudioSrc] = useState<string | null>(null);
+  const { toast } = useToast();
   
   useEffect(() => {
     const hash = window.location.hash.substring(1);
@@ -26,10 +31,41 @@ export function MonasteryMap() {
     }
   }, []);
 
+  useEffect(() => {
+    setAudioSrc(null); // Reset audio when monastery changes
+  }, [selectedMonastery]);
+
   const handleSelect = (monastery: Monastery) => {
     setSelectedMonastery(monastery);
     window.history.pushState(null, '', `#${monastery.id}`);
   };
+  
+  const handlePlayAudio = () => {
+    if (!selectedMonastery) return;
+
+    if (audioSrc) {
+        const audio = new Audio(audioSrc);
+        audio.play();
+        return;
+    }
+
+    startAudioTransition(async () => {
+      try {
+        const result = await textToSpeech(`Here is some information about ${selectedMonastery.name}. ${selectedMonastery.description}`);
+        setAudioSrc(result.audio);
+        const audio = new Audio(result.audio);
+        audio.play();
+      } catch (e) {
+        console.error(e);
+        toast({
+          variant: "destructive",
+          title: "Audio Generation Failed",
+          description: "Could not generate audio guide. Please try again.",
+        });
+      }
+    });
+  };
+
 
   const mapImage = placeholderImages.find(p => p.id === "sikkim-map");
   
@@ -100,7 +136,17 @@ export function MonasteryMap() {
                            <div className="flex items-center gap-2"><Bed className="w-4 h-4 text-primary"/> <strong>Lodging:</strong> {selectedMonastery.lodging}</div>
                            <div className="flex items-center gap-2"><Utensils className="w-4 h-4 text-primary"/> <strong>Meals:</strong> {selectedMonastery.meals}</div>
                         </div>
-                         <Button className="mt-6">Plan a Visit</Button>
+                         <div className="flex gap-2 mt-6">
+                            <Button>Plan a Visit</Button>
+                            <Button variant="outline" onClick={handlePlayAudio} disabled={isAudioLoading}>
+                                {isAudioLoading ? (
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                ) : (
+                                    <Volume2 className="w-5 h-5" />
+                                )}
+                                <span className="ml-2">Audio Guide</span>
+                            </Button>
+                         </div>
                       </div>
                     </div>
                   </CardContent>
