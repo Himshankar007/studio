@@ -1,3 +1,110 @@
-{
-  "placeholderImages": []
-}
+[
+  {
+    "id": "hero-background",
+    "description": "Prayer flags fluttering in the Himalayan wind with a monastery in the background.",
+    "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
+    "imageHint": "Himalayas monastery"
+  },
+  {
+    "id": "sikkim-map",
+    "description": "A stylized map of Sikkim showing major towns and geographical features.",
+    "imageUrl": "https://picsum.photos/seed/sikkimmap/800/600",
+    "imageHint": "Sikkim map"
+  },
+  {
+    "id": "monastery-1",
+    "description": "The grand structure of Rumtek Monastery.",
+    "imageUrl": "https://picsum.photos/seed/monastery1/600/400",
+    "imageHint": "buddhist monastery"
+  },
+  {
+    "id": "monastery-2",
+    "description": "Pemayangtse Monastery with a view of mountains.",
+    "imageUrl": "https://picsum.photos/seed/monastery2/600/400",
+    "imageHint": "monastery mountains"
+  },
+  {
+    "id": "monastery-3",
+    "description": "The sacred Tashiding Monastery on a hilltop.",
+    "imageUrl": "https://picsum.photos/seed/monastery3/600/400",
+    "imageHint": "hilltop monastery"
+  },
+  {
+    "id": "monastery-4",
+    "description": "The colorful facade of Enchey Monastery in Gangtok.",
+    "imageUrl": "https://picsum.photos/seed/monastery4/600/400",
+    "imageHint": "colorful monastery"
+  },
+  {
+    "id": "monastery-5",
+    "description": "The ancient and serene Dubdi Monastery.",
+    "imageUrl": "https://picsum.photos/seed/monastery5/600/400",
+    "imageHint": "ancient monastery"
+  },
+  {
+    "id": "experience-1",
+    "description": "A person meditating peacefully inside a monastery.",
+    "imageUrl": "https://picsum.photos/seed/experience1/600/400",
+    "imageHint": "meditation peace"
+  },
+  {
+    "id": "experience-2",
+    "description": "Trekkers on a mountain path with a monastery in the distance.",
+    "imageUrl": "https://picsum.photos/seed/experience2/600/400",
+    "imageHint": "mountain trekking"
+  },
+  {
+    "id": "experience-3",
+    "description": "Hands of an artist painting a traditional Thangka.",
+    "imageUrl": "https://picsum.photos/seed/experience3/600/400",
+    "imageHint": "art painting"
+  },
+  {
+    "id": "product-1",
+    "description": "Artisanal handmade soap bars with herbs.",
+    "imageUrl": "https://picsum.photos/seed/product1/400/300",
+    "imageHint": "handmade soap"
+  },
+  {
+    "id": "product-2",
+    "description": "Sticks of Himalayan herbal incense.",
+    "imageUrl": "https://picsum.photos/seed/product2/400/300",
+    "imageHint": "herbal incense"
+  },
+  {
+    "id": "product-3",
+    "description": "Loose leaf organic black tea.",
+    "imageUrl": "https://picsum.photos/seed/product3/400/300",
+    "imageHint": "organic tea"
+  },
+  {
+    "id": "product-4",
+    "description": "A colorful hand-woven scarf with traditional patterns.",
+    "imageUrl": "https://picsum.photos/seed/product4/400/300",
+    "imageHint": "woven scarf"
+  },
+  {
+    "id": "product-5",
+    "description": "A string of polished Bodhi seed prayer beads.",
+    "imageUrl": "https://picsum.photos/seed/product5/400/300",
+    "imageHint": "prayer beads"
+  },
+  {
+    "id": "product-6",
+    "description": "A shiny, ornate brass butter lamp.",
+    "imageUrl": "https://picsum.photos/seed/product6/400/300",
+    "imageHint": "brass lamp"
+  },
+  {
+    "id": "product-7",
+    "description": "A Tibetan singing bowl with a mallet.",
+    "imageUrl": "https://picsum.photos/seed/product7/400/300",
+    "imageHint": "singing bowl"
+  },
+  {
+    "id": "product-8",
+    "description": "A high-quality print of a Thangka painting.",
+    "imageUrl": "https://picsum.photos/seed/product8/400/300",
+    "imageHint": "art print"
+  }
+]

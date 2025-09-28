@@ -1,1 +1,5 @@
-// Flows will be imported for their side effects in this file.
+import { config } from 'dotenv';
+config();
+
+import '@/ai/flows/ai-thangka-explorer.ts';
+import '@/ai/flows/digital-mandala-builder.ts';
