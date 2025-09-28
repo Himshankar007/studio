@@ -19,29 +19,27 @@ export default function Home() {
           muted
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
-          poster="https://picsum.photos/seed/hero/1920/1080"
+          poster="https://picsum.photos/seed/hero-sikkim/1920/1080"
         >
-          <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/5199155/5199155-hd_1920_1080_25fps.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold !leading-tight tracking-tight">
-            Connecting the Modern Pilgrim
-            <br />
-            to Ancient Wisdom
+            Monastery360
           </h1>
           <p className="mt-4 max-w-2xl text-lg md:text-xl text-muted-foreground">
-            The official, global gateway to Sikkim's monastic world. Discover sacred sites, plan your journey, and immerse yourself in timeless culture.
+            A Digital Heritage Platform for Sikkim’s Monasteries. Your gateway to exploring ancient wisdom through immersive technology.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-lg">
-              <Link href="/travel">
-                Plan Your Visit <ArrowRight className="ml-2" />
+              <Link href="/monasteries">
+                Start Your Virtual Tour <ArrowRight className="ml-2" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold text-lg">
-              <Link href="/monasteries">Explore Monasteries</Link>
+              <Link href="/experiences">Discover Experiences</Link>
             </Button>
           </div>
         </div>
