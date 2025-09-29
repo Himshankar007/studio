@@ -83,7 +83,7 @@ export default function Home() {
                     )}
                   <CardContent className="p-6">
                     <div className="flex justify-between items-start">
-                        <h3 className="font-bold text-xl font-headline">{monastery.name}</h3>
+                        <h3 className="font-bold text-xl font-headline text-primary">{monastery.name}</h3>
                         <div className="bg-primary/20 text-primary px-2 py-1 rounded-full text-xs font-semibold">{monastery.founded}</div>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">{monastery.description.split('.')[0]}.</p>
