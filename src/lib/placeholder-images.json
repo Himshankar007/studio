@@ -14,19 +14,19 @@
   {
     "id": "monastery-1",
     "description": "The grand structure of Rumtek Monastery.",
-    "imageUrl": "https://picsum.photos/seed/rumtek-monastery/600/400",
+    "imageUrl": "https://picsum.photos/seed/rumtek-monastery-view/600/400",
     "imageHint": "Rumtek monastery"
   },
   {
     "id": "monastery-2",
     "description": "Pemayangtse Monastery with a view of mountains.",
-    "imageUrl": "https://picsum.photos/seed/pemayangtse-monastery/600/400",
+    "imageUrl": "https://picsum.photos/seed/pemayangtse-monastery-mountains/600/400",
     "imageHint": "Pemayangtse mountains"
   },
   {
     "id": "monastery-3",
     "description": "The sacred Tashiding Monastery on a hilltop.",
-    "imageUrl": "https://picsum.photos/seed/tashiding-monastery/600/400",
+    "imageUrl": "https://picsum.photos/seed/tashiding-monastery-hilltop/600/400",
     "imageHint": "Tashiding hilltop"
   },
   {
@@ -44,19 +44,19 @@
   {
     "id": "experience-1",
     "description": "A person meditating peacefully inside a monastery.",
-    "imageUrl": "https://picsum.photos/seed/spiritual-retreat/600/400",
+    "imageUrl": "https://picsum.photos/seed/retreat-meditation/600/400",
     "imageHint": "spiritual retreat"
   },
   {
     "id": "experience-2",
     "description": "Trekkers on a mountain path with a monastery in the distance.",
-    "imageUrl": "https://picsum.photos/seed/monastery-trek/600/400",
+    "imageUrl": "https://picsum.photos/seed/trek-himalayan/600/400",
     "imageHint": "monastery trek"
   },
   {
     "id": "experience-3",
     "description": "Hands of an artist painting a traditional Thangka.",
-    "imageUrl": "https://picsum.photos/seed/heritage-workshop/600/400",
+    "imageUrl": "https://picsum.photos/seed/workshop-thangka/600/400",
     "imageHint": "heritage workshop"
   },
   {
