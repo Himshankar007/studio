@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslations } from 'next-intl';
-import { locales } from '../../../i18n';
+import { locales } from '@/../i18n';
 import { useLocale } from 'next-intl';
 
 const Header = () => {
@@ -68,7 +68,7 @@ const Header = () => {
     )}>
       <div className="container mx-auto flex h-full items-center justify-between px-4 md:px-10">
         <Link href="/" className="flex items-center gap-2 text-white text-xl font-bold text-shadow">
-          Monastery360
+          Sikkim Serenity Gateway
         </Link>
 
         <nav className="hidden md:flex gap-1">
@@ -109,7 +109,7 @@ const Header = () => {
                 <nav className="flex flex-col gap-4 mt-8">
                    <SheetClose asChild>
                      <Link href="/" className="flex items-center gap-2 mb-4 text-xl font-bold">
-                        Monastery360
+                        Sikkim Serenity Gateway
                     </Link>
                   </SheetClose>
                   {navLinks.map((link) => (

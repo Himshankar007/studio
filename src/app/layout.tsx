@@ -8,7 +8,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Monastery360',
+  title: 'Sikkim Serenity Gateway',
   description:
     'A Digital Heritage Platform for Sikkim’s Monasteries. Your gateway to exploring ancient wisdom through immersive technology.',
 };
@@ -33,7 +33,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`font-body antialiased ${inter.className}`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="flex flex-col min-h-screen">
             {children}
           </div>
