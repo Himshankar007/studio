@@ -44,20 +44,20 @@
   {
     "id": "experience-1",
     "description": "A person meditating peacefully inside a monastery.",
-    "imageUrl": "https://picsum.photos/seed/experience1/600/400",
-    "imageHint": "meditation peace"
+    "imageUrl": "https://picsum.photos/seed/spiritual-retreat/600/400",
+    "imageHint": "spiritual retreat"
   },
   {
     "id": "experience-2",
     "description": "Trekkers on a mountain path with a monastery in the distance.",
-    "imageUrl": "https://picsum.photos/seed/experience2/600/400",
-    "imageHint": "Himalayan trekking"
+    "imageUrl": "https://picsum.photos/seed/monastery-trek/600/400",
+    "imageHint": "monastery trek"
   },
   {
     "id": "experience-3",
     "description": "Hands of an artist painting a traditional Thangka.",
-    "imageUrl": "https://picsum.photos/seed/experience3/600/400",
-    "imageHint": "Thangka painting"
+    "imageUrl": "https://picsum.photos/seed/heritage-workshop/600/400",
+    "imageHint": "heritage workshop"
   },
   {
     "id": "product-1",
