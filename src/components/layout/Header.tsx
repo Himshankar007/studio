@@ -1,7 +1,7 @@
 
 "use client";
 
-import Link from 'next-link';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslations } from 'next-intl';
-import { locales } from '@/i18n';
+import { locales } from '../../../i18n';
 import { useLocale } from 'next-intl';
 
 const Header = () => {
