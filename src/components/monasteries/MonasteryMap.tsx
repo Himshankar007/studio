@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useTransition } from 'react';
+import { useState, useEffect, useTransition, useMemo } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,24 +8,118 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { monasteries } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { cn } from '@/lib/utils';
-import { MapPin, Calendar, Clock, Utensils, Bed, Volume2, Loader2 } from 'lucide-react';
+import { Calendar, Clock, Utensils, Bed, Volume2, Loader2, Info } from 'lucide-react';
 import { textToSpeech } from '@/ai/flows/smart-audio-guide';
 import { useToast } from '@/hooks/use-toast';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 
 type Monastery = typeof monasteries[0];
 
+const mapContainerStyle = {
+  width: '100%',
+  height: '100%',
+};
+
+// Center of Sikkim
+const center = {
+  lat: 27.5330,
+  lng: 88.5122
+};
+
+const mapOptions = {
+  styles: [
+      { elementType: "geometry", stylers: [{ color: "#F2EBD3" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#F2EBD3" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#800000" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#800000" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#FF9933" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#E5E1C8" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#800000" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#ffffff" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#D3C7A2" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#800000" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#FADFAA" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#FF9933" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#F2EBD3" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#A5C4D4" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6B8A99" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#F2EBD3" }],
+      },
+    ],
+  disableDefaultUI: true,
+  zoomControl: true,
+};
+
 export function MonasteryMap() {
-  const [selectedMonastery, setSelectedMonastery] = useState<Monastery | null>(monasteries[0] || null);
+  const [selectedMonastery, setSelectedMonastery] = useState<Monastery | null>(null);
+  const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [isAudioLoading, startAudioTransition] = useTransition();
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const { toast } = useToast();
-  
+
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    libraries: ['places'],
+  });
+
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     if (hash) {
       const monastery = monasteries.find(m => m.id === hash);
       if (monastery) {
         setSelectedMonastery(monastery);
+        setActiveMarker(monastery.id);
         document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
       }
     }
@@ -37,9 +131,16 @@ export function MonasteryMap() {
 
   const handleSelect = (monastery: Monastery) => {
     setSelectedMonastery(monastery);
+    setActiveMarker(monastery.id);
     window.history.pushState(null, '', `#${monastery.id}`);
   };
   
+  const handleMarkerClick = (monastery: Monastery) => {
+    handleSelect(monastery);
+    const element = document.getElementById(monastery.id);
+    element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
   const handlePlayAudio = () => {
     if (!selectedMonastery) return;
 
@@ -65,15 +166,68 @@ export function MonasteryMap() {
       }
     });
   };
-
-
-  const mapImage = placeholderImages.find(p => p.id === "sikkim-map");
   
+  const mapContent = useMemo(() => {
+    if (loadError) {
+      return (
+        <div className="flex flex-col items-center justify-center h-full text-destructive-foreground p-4">
+            <h3 className="font-bold text-lg">Error loading map</h3>
+            <p>Please check the API key and internet connection.</p>
+        </div>
+      );
+    }
+    if (!isLoaded) {
+      return (
+        <div className="flex items-center justify-center h-full">
+            <Loader2 className="w-10 h-10 animate-spin" />
+        </div>
+      );
+    }
+    return (
+        <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            center={center}
+            zoom={9}
+            options={mapOptions}
+        >
+            {monasteries.map(monastery => (
+                <Marker
+                    key={monastery.id}
+                    position={monastery.coords}
+                    onClick={() => handleMarkerClick(monastery)}
+                    icon={{
+                        path: window.google.maps.SymbolPath.CIRCLE,
+                        scale: activeMarker === monastery.id ? 10 : 7,
+                        fillColor: '#800000',
+                        fillOpacity: 1,
+                        strokeWeight: 2,
+                        strokeColor: '#FFFFFF'
+                    }}
+                />
+            ))}
+            {activeMarker && selectedMonastery && (
+                <InfoWindow
+                    position={selectedMonastery.coords}
+                    onCloseClick={() => {
+                        setActiveMarker(null);
+                        setSelectedMonastery(null);
+                    }}
+                >
+                    <div className="p-1 max-w-xs">
+                        <h4 className="font-bold text-lg text-primary">{selectedMonastery.name}</h4>
+                        <p className="text-sm text-foreground line-clamp-2">{selectedMonastery.description}</p>
+                    </div>
+                </InfoWindow>
+            )}
+        </GoogleMap>
+    );
+  }, [isLoaded, loadError, activeMarker, selectedMonastery]);
+
   return (
     <Card className="shadow-2xl">
       <CardContent className="p-0">
         <div className="grid grid-cols-1 lg:grid-cols-3">
-          <ScrollArea className="h-[70vh] lg:h-auto lg:max-h-[80vh] border-r">
+          <ScrollArea className="h-[40vh] lg:h-auto lg:max-h-[80vh] border-r">
             <div className="p-4 space-y-2">
               {monasteries.map((monastery) => (
                 <div
@@ -94,30 +248,13 @@ export function MonasteryMap() {
             </div>
           </ScrollArea>
           
-          <div className="lg:col-span-2 p-4 md:p-6">
-            <div className="relative aspect-[4/3] w-full bg-secondary rounded-lg overflow-hidden border">
-              {mapImage && <Image src={mapImage.imageUrl} alt="Map of Sikkim" fill className="object-cover" data-ai-hint={mapImage.imageHint} />}
-              {monasteries.map(monastery => (
-                <div
-                  key={`dot-${monastery.id}`}
-                  onClick={() => handleSelect(monastery)}
-                  style={{ top: monastery.mapPosition.top, left: monastery.mapPosition.left }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 w-4 h-4 cursor-pointer"
-                >
-                  <div className={cn(
-                    "w-full h-full rounded-full bg-accent border-2 border-accent-foreground transition-all duration-300",
-                    selectedMonastery?.id === monastery.id ? 'scale-150' : 'hover:scale-125'
-                  )}></div>
-                  <span className={cn(
-                    "absolute top-full left-1/2 -translate-x-1/2 mt-1 text-xs font-bold text-background bg-foreground/80 px-2 py-0.5 rounded-md transition-opacity duration-300 whitespace-nowrap",
-                     selectedMonastery?.id === monastery.id ? 'opacity-100' : 'opacity-0'
-                  )}>{monastery.name}</span>
-                </div>
-              ))}
+          <div className="lg:col-span-2">
+            <div className="relative aspect-video lg:aspect-auto lg:h-[45vh] w-full bg-secondary rounded-lg overflow-hidden border">
+              {mapContent}
             </div>
 
-            {selectedMonastery && (
-              <div className="mt-6 animate-in fade-in duration-500">
+            {selectedMonastery ? (
+              <div className="mt-4 p-4 md:p-6 animate-in fade-in duration-500">
                 <Card className="bg-secondary">
                   <CardContent className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -128,7 +265,7 @@ export function MonasteryMap() {
                         })()}
                       </div>
                       <div className="md:col-span-2">
-                        <h2 className="font-headline text-3xl font-bold">{selectedMonastery.name}</h2>
+                        <h2 className="font-headline text-3xl font-bold text-primary">{selectedMonastery.name}</h2>
                         <p className="mt-2 text-muted-foreground">{selectedMonastery.description}</p>
                         <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
                           <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary"/> <strong>Founded:</strong> {selectedMonastery.founded}</div>
@@ -151,6 +288,12 @@ export function MonasteryMap() {
                     </div>
                   </CardContent>
                 </Card>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center p-8 text-center text-muted-foreground h-[35vh]">
+                <Info className="w-12 h-12 mb-4" />
+                <h3 className="font-bold text-lg">Select a monastery</h3>
+                <p>Click on a monastery from the list or on the map to see details.</p>
               </div>
             )}
           </div>
