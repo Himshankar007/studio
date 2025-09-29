@@ -1,0 +1,53 @@
+
+{
+  "Header": {
+    "nav": {
+      "monasteries": "གོནཔ།",
+      "virtualTour": "Virtual Tour",
+      "maps": "Maps",
+      "archives": "Archives",
+      "calendar": "Calendar",
+      "audioGuide": "Audio Guide"
+    },
+    "searchPlaceholder": "Search",
+    "exploreNow": "Explore Now",
+    "languages": {
+      "en": "English",
+      "hi": "Hindi",
+      "te": "Telugu",
+      "ne": "Nepali",
+      "sip": "Sikkimese (Bhutia)",
+      "lep": "Lepcha"
+    }
+  },
+  "Footer": {
+    "title": "Monastery360 Digital Heritage",
+    "description": "Preserving and sharing the sacred cultural heritage of Sikkim’s monasteries through digital innovation, making ancient wisdom accessible to the world.",
+    "copyright": "Monastery360 Project",
+    "initiative": "A Cultural Preservation Initiative",
+    "reverence": "Built with respect and reverence"
+  },
+  "Home": {
+    "hero": {
+      "title": "DISCOVER",
+      "subtitle": "Sikkim's Sacred Monasteries",
+      "description": "Immerse yourself in the spiritual heritage of the Himalayas through virtual tours, digital archives, and interactive experiences that bring ancient wisdom to life.",
+      "cta": {
+        "virtualTour": "Start Virtual Tour",
+        "exploreMap": "Explore Map"
+      }
+    },
+    "sanctuaries": {
+      "title": "Sacred Sanctuaries",
+      "description": "Explore the most revered monasteries of Sikkim, each holding centuries of spiritual wisdom and architectural marvels nestled in the Himalayan landscape.",
+      "tags": {
+        "architecture": "Architecture",
+        "meditation": "Meditation"
+      },
+      "links": {
+        "virtualTour": "Virtual Tour",
+        "visit": "Visit"
+      }
+    }
+  }
+}

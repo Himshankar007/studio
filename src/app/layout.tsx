@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Monastery360',
@@ -10,28 +13,32 @@ export const metadata: Metadata = {
     'A Digital Heritage Platform for Sikkim’s Monasteries. Your gateway to exploring ancient wisdom through immersive technology.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { locale }
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="dark">
-      <head>
+    <html lang={locale} className="dark">
+       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Arial&family=PT+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased">
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
-        <Toaster />
+      <body className={`font-body antialiased ${inter.className}`}>
+        <NextIntlClientProvider messages={messages}>
+          <div className="flex flex-col min-h-screen">
+            {children}
+          </div>
+          <Toaster />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

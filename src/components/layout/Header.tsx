@@ -1,12 +1,11 @@
 
 "use client";
 
-import Link from 'next/link';
+import Link from 'next-link';
 import { usePathname } from 'next/navigation';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Menu, Search } from 'lucide-react';
-import { DharmaWheelIcon } from '@/components/icons';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import { Input } from '../ui/input';
@@ -16,21 +15,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-
-const navLinks = [
-  { href: '/monasteries', label: 'Monasteries' },
-  { href: '#video-section', label: 'Virtual Tour' },
-  { href: '/monasteries', label: 'Maps' },
-  { href: '/culture', label: 'Archives' },
-  { href: '#calendar', label: 'Calendar' },
-  { href: '#audio-guide', label: 'Audio Guide' },
-];
+import { useTranslations } from 'next-intl';
+import { locales } from '@/i18n';
+import { useLocale } from 'next-intl';
 
 const Header = () => {
+  const t = useTranslations('Header');
   const pathname = usePathname();
+  const locale = useLocale();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  const navLinks = [
+    { href: '/monasteries', label: t('nav.monasteries') },
+    { href: '/#video-section', label: t('nav.virtualTour') },
+    { href: '/monasteries', label: t('nav.maps') },
+    { href: '/culture', label: t('nav.archives') },
+    { href: '/#calendar', label: t('nav.calendar') },
+    { href: '/#audio-guide', label: t('nav.audioGuide') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,27 +44,27 @@ const Header = () => {
       }
     };
     
-    // Only add scroll listener on the homepage
-    if (pathname === '/') {
+    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
+    
+    if (isHomePage) {
       window.addEventListener('scroll', handleScroll);
-      // initial check
       handleScroll();
     } else {
       setScrolled(true);
     }
     
     return () => {
-      if (pathname === '/') {
+      if (isHomePage) {
         window.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [pathname, scrolled]);
+  }, [pathname, scrolled, locale]);
 
 
   return (
     <header className={cn(
       "fixed top-0 z-50 w-full h-[70px] transition-colors duration-300",
-      scrolled || pathname !== '/' ? 'bg-black/90' : 'bg-transparent'
+      scrolled ? 'bg-black/90' : 'bg-transparent'
     )}>
       <div className="container mx-auto flex h-full items-center justify-between px-4 md:px-10">
         <Link href="/" className="flex items-center gap-2 text-white text-xl font-bold text-shadow">
@@ -78,21 +81,20 @@ const Header = () => {
 
         <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center gap-2">
-                <Input type="text" placeholder="Search" className="bg-transparent text-white border-white placeholder:text-gray-300 h-8 text-shadow" />
+                <Input type="text" placeholder={t('searchPlaceholder')} className="bg-transparent text-white border-white placeholder:text-gray-300 h-8 text-shadow" />
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">🌐</Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem>English</DropdownMenuItem>
-                    <DropdownMenuItem>Hindi</DropdownMenuItem>
-                    <DropdownMenuItem>Telugu</DropdownMenuItem>
-                    <DropdownMenuItem>Nepali</DropdownMenuItem>
-                    <DropdownMenuItem>Sikkimese (Bhutia)</DropdownMenuItem>
-                    <DropdownMenuItem>Lepcha</DropdownMenuItem>
+                    {locales.map((loc) => (
+                       <DropdownMenuItem key={loc} asChild>
+                         <Link href={pathname.startsWith(`/${locale}`) ? pathname.replace(`/${locale}`, `/${loc}`) : `/${loc}${pathname}`}>{t(`languages.${loc}`)}</Link>
+                       </DropdownMenuItem>
+                    ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">Explore Now</Button>
+                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">{t('exploreNow')}</Button>
             </div>
 
           <div className="md:hidden">

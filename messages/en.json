@@ -1,0 +1,220 @@
+
+{
+  "Header": {
+    "nav": {
+      "monasteries": "Monasteries",
+      "virtualTour": "Virtual Tour",
+      "maps": "Maps",
+      "archives": "Archives",
+      "calendar": "Calendar",
+      "audioGuide": "Audio Guide"
+    },
+    "searchPlaceholder": "Search",
+    "exploreNow": "Explore Now",
+    "languages": {
+      "en": "English",
+      "hi": "Hindi",
+      "te": "Telugu",
+      "ne": "Nepali",
+      "sip": "Sikkimese (Bhutia)",
+      "lep": "Lepcha"
+    }
+  },
+  "Footer": {
+    "title": "Monastery360 Digital Heritage",
+    "description": "Preserving and sharing the sacred cultural heritage of Sikkim's monasteries through digital innovation, making ancient wisdom accessible to the world.",
+    "copyright": "Monastery360 Project",
+    "initiative": "A Cultural Preservation Initiative",
+    "reverence": "Built with respect and reverence"
+  },
+  "Home": {
+    "hero": {
+      "title": "DISCOVER",
+      "subtitle": "Sikkim's Sacred Monasteries",
+      "description": "Immerse yourself in the spiritual heritage of the Himalayas through virtual tours, digital archives, and interactive experiences that bring ancient wisdom to life.",
+      "cta": {
+        "virtualTour": "Start Virtual Tour",
+        "exploreMap": "Explore Map"
+      }
+    },
+    "sanctuaries": {
+      "title": "Sacred Sanctuaries",
+      "description": "Explore the most revered monasteries of Sikkim, each holding centuries of spiritual wisdom and architectural marvels nestled in the Himalayan landscape.",
+      "tags": {
+        "architecture": "Architecture",
+        "meditation": "Meditation"
+      },
+      "links": {
+        "virtualTour": "Virtual Tour",
+        "visit": "Visit"
+      }
+    },
+    "geography": {
+      "title": "Explore the Sacred Geography",
+      "description": "Navigate through Sikkim's spiritual landscape with our interactive map featuring monastery locations, trekking routes, and cultural points of interest.",
+      "map": {
+        "title": "Interactive Map",
+        "description": "Full interactive map with monastery locations, routes, and cultural sites.",
+        "cta": "Launch Map"
+      },
+      "features": {
+        "locations": {
+          "title": "Monastery Locations",
+          "description": "Discover precise locations of all major monasteries with detailed information and visiting hours."
+        },
+        "routes": {
+          "title": "Pilgrimage Routes",
+          "description": "Follow traditional pilgrimage paths connecting monasteries with guided route information."
+        }
+      }
+    },
+    "preservation": {
+      "title": "Digital Preservation",
+      "description": "Access our comprehensive digital archive of Buddhist manuscripts, sacred art, and historical documents preserved for future generations.",
+      "cards": {
+        "manuscripts": {
+          "title": "Ancient Manuscripts",
+          "count": "1,247 documents",
+          "description": "Rare Buddhist texts, philosophical treatises, and prayer books."
+        },
+        "murals": {
+          "title": "Sacred Murals",
+          "count": "850 high-res images",
+          "description": "Detailed photography of monastery wall paintings and artistic decorations."
+        },
+        "records": {
+          "title": "Historical Records",
+          "count": "432 documents",
+          "description": "Administrative records, chronicles, and historical accounts of monastic life."
+        }
+      }
+    },
+    "audioGuide": {
+      "title": "Smart Audio Guide",
+      "description": "Transform your monastery visits with our intelligent audio guide app. Get contextual information, stories, and spiritual insights as you explore.",
+      "player": {
+        "title": "Sikkim Monasteries",
+        "subtitle": "Audio Guide v2.1",
+        "nowPlaying": "Now Playing",
+        "trackTitle": "\"The Golden Stupa of Rumtek: A Sacred Symbol of Enlightenment\"",
+        "locationActive": "Location Active",
+        "offlineReady": "Offline Ready"
+      },
+      "features": {
+        "location": {
+          "title": "Location-Based Audio",
+          "description": "Automatic commentary triggered by your GPS location as you explore each monastery."
+        },
+        "narration": {
+          "title": "Expert Narration",
+          "description": "Stories told by Buddhist scholars, monks, and local historians in multiple languages."
+        },
+        "soundscapes": {
+          "title": "Ambient Soundscapes",
+          "description": "Immersive audio featuring chanting, prayer bells, and natural mountain sounds."
+        }
+      },
+      "cta": {
+        "download": "Download App",
+        "preview": "Preview Audio"
+      }
+    }
+  },
+  "MonasteriesPage": {
+    "title": "Monasteries of Sikkim",
+    "subtitle": "Discover the spiritual heart of the Himalayas. Use our interactive map to explore ancient monasteries, learn their stories, and find practical information for your visit."
+  },
+  "CulturePage": {
+    "title": "Culture & Wisdom",
+    "subtitle": "Engage with Sikkim's profound spiritual heritage through interactive digital tools. Explore ancient art and create your own symbols of peace.",
+    "tabs": {
+      "thangkaExplorer": "AI Thangka Explorer",
+      "mandalaBuilder": "Digital Mandala Builder"
+    }
+  },
+  "ExperiencesPage": {
+    "title": "Curated Experiences",
+    "subtitle": "Craft your unique journey through Sikkim. Choose from spiritual retreats, cultural immersions, and adventurous treks designed for the modern pilgrim.",
+    "packages": {
+      "title": "Customizable Packages",
+      "cta": "Customize & Book",
+      "items": {
+        "peace-seeker": {
+          "title": "Peace-Seeker Spiritual Retreat",
+          "description": "A 7-day immersive retreat in a functioning monastery. Participate in daily chants, meditation, and philosophy teachings.",
+          "price": "Starting at $500"
+        },
+        "himalayan-trek": {
+          "title": "Himalayan Monastery Trek",
+          "description": "A guided 5-day trek connecting three remote monasteries. Includes camping, a local guide, and all meals.",
+          "price": "Starting at $450"
+        },
+        "culture-workshop": {
+          "title": "Cultural Heritage Workshop",
+          "description": "A weekend workshop on Thangka painting and Buddhist calligraphy, taught by local masters in Gangtok.",
+          "price": "Starting at $200"
+        }
+      }
+    },
+    "peaceSeeker": {
+      "title": "The Peace-Seeker Program",
+      "description": "For those seeking profound spiritual immersion, our Peace-Seeker Program offers the unique opportunity to experience monastic life. Participate in daily rituals, learn ancient philosophies, and find your inner calm under the guidance of seasoned monks.",
+      "features": [
+        "Temporary ordination and extended retreats.",
+        "Live like a monk or nun within a monastery.",
+        "Guided meditation and philosophy sessions."
+      ],
+      "cta": "Apply to Join"
+    },
+    "teamUp": {
+      "title": "Traveler Team-Up Hub",
+      "description": "Connect with fellow travelers exploring Sikkim. Share experiences, join group tours, or simply make new friends on your spiritual journey."
+    }
+  },
+  "MarketplacePage": {
+    "title": "Monastery Marketplace",
+    "subtitle": "Support local monastic communities by purchasing authentic, handcrafted goods. Every purchase contributes to their self-sustainment and cultural preservation.",
+    "from": "From",
+    "addToCart": "Add to cart",
+    "products": {
+      "soap": { "name": "Handmade Juniper Soap" },
+      "incense": { "name": "Himalayan Herbal Incense" },
+      "tea": { "name": "Organic Sikkim Black Tea" },
+      "scarf": { "name": "Hand-woven Prayer Scarf" },
+      "prayer-beads": { "name": "Bodhi Seed Prayer Beads" },
+      "butter-lamp": { "name": "Traditional Brass Butter Lamp" },
+      "singing-bowl": { "name": "Hand-hammered Singing Bowl" },
+      "thangka-print": { "name": "A4 Thangka Art Print" }
+    }
+  },
+  "TravelPage": {
+    "title": "Travel & Booking",
+    "subtitle": "Your seamless journey to serenity starts here. Book tickets, find transport, and get all the assistance you need for a worry-free pilgrimage.",
+    "transport": {
+      "title": "Transport Information",
+      "bus": {
+        "title": "Local Buses & Taxis",
+        "description": "Sikkim Nationalised Transport (SNT) offers regular bus services connecting major towns and monasteries. Shared and private taxis are also widely available for more flexible travel. We recommend booking taxis a day in advance, especially during peak season."
+      },
+      "rental": {
+        "title": "Rental Vehicles",
+        "description": "For ultimate freedom, consider renting a vehicle with a local driver. This allows you to explore off-the-beaten-path destinations at your own pace. Our partners offer reliable vehicles and experienced drivers familiar with mountain roads."
+      }
+    },
+    "helpline": {
+      "title": "Traveler Helpline",
+      "description": "Need assistance during your travels? Our support team is here to help with any critical issues you may face.",
+      "offline": {
+        "title": "Offline Helpline",
+        "description": "For urgent matters, call one of our support numbers:",
+        "main": "Main",
+        "alternative": "Alternative"
+      },
+      "online": {
+        "title": "Online Support",
+        "description": "For non-urgent inquiries or to get in touch via email, please use our contact form. We typically respond within 24 hours.",
+        "cta": "Contact Us Online"
+      }
+    }
+  }
+}

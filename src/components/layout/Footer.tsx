@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -11,19 +13,18 @@ const Footer = () => {
                     M360
                 </div>
                 <h4 className="font-semibold text-gray-800 text-lg">
-                    Monastery360 Digital Heritage
+                    {t('title')}
                 </h4>
             </div>
             <p className="text-gray-600 text-sm mt-3 max-w-2xl mx-auto">
-                Preserving and sharing the sacred cultural heritage of Sikkim&apos;s monasteries through
-                digital innovation, making ancient wisdom accessible to the world.
+                {t('description')}
             </p>
             <div className="mt-6 text-xs text-gray-500 flex flex-wrap justify-center gap-x-4 gap-y-1">
-                <span>© {currentYear} Monastery360 Project</span>
+                <span>© {currentYear} {t('copyright')}</span>
                 <span className="hidden sm:inline">•</span>
-                <span>A Cultural Preservation Initiative</span>
+                <span>{t('initiative')}</span>
                  <span className="hidden sm:inline">•</span>
-                <span>Built with respect and reverence</span>
+                <span>{t('reverence')}</span>
             </div>
         </div>
     </footer>
