@@ -62,7 +62,7 @@ const Header = () => {
 
         <nav className="hidden md:flex gap-1">
           {navLinks.map((link) => (
-            <Button asChild variant="ghost" key={link.href} className="text-white hover:text-yellow-400 text-shadow">
+            <Button asChild variant="ghost" key={`${link.href}-${link.label}`} className="text-white hover:text-yellow-400 text-shadow">
               <Link href={link.href}>{link.label}</Link>
             </Button>
           ))}
@@ -91,7 +91,7 @@ const Header = () => {
                     </Link>
                   </SheetClose>
                   {navLinks.map((link) => (
-                    <SheetClose asChild key={link.href}>
+                    <SheetClose asChild key={`${link.href}-${link.label}-mobile`}>
                       <Link
                         href={link.href}
                         className='text-lg font-medium transition-colors hover:text-yellow-400'
