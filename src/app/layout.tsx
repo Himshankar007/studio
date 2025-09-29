@@ -5,9 +5,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Sikkim Serenity Gateway',
+  title: 'Monastery360',
   description:
-    'Your digital gateway to the monastic world of Sikkim. Explore, learn, and plan your pilgrimage.',
+    'A Digital Heritage Platform for Sikkim’s Monasteries. Your gateway to exploring ancient wisdom through immersive technology.',
 };
 
 export default function RootLayout({
@@ -21,11 +21,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Arial&family=PT+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-sans antialiased">
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>

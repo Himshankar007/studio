@@ -17,9 +17,15 @@ export default {
     },
     extend: {
       fontFamily: {
+        sans: ['Arial', 'sans-serif'],
         body: ['PT Sans', 'sans-serif'],
         headline: ['Playfair Display', 'serif'],
         code: ['monospace'],
+      },
+      textShadow: {
+        DEFAULT: '2px 2px 6px rgba(0, 0, 0, 0.7)',
+        sm: '1px 1px 3px rgba(0, 0, 0, 0.7)',
+        lg: '2px 2px 8px rgba(0, 0, 0, 0.7)',
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -55,23 +61,6 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -95,12 +84,37 @@ export default {
             height: '0',
           },
         },
+         mistSwirl: {
+            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+            '50%': { transform: 'translate(20px, 10px) rotate(180deg)' },
+            '100%': { transform: 'translate(0, 0) rotate(360deg)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'mist-swirl': 'mistSwirl 30s linear infinite',
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addUtilities, theme }: { addUtilities: Function, theme: Function }) {
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow: theme('textShadow.DEFAULT'),
+        },
+        '.text-shadow-sm': {
+          textShadow: theme('textShadow.sm'),
+        },
+         '.text-shadow-lg': {
+          textShadow: theme('textShadow.lg'),
+        },
+        '.text-shadow-none': {
+          textShadow: 'none',
+        },
+      }
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    }
+  ],
 } satisfies Config;
