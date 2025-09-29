@@ -9,7 +9,8 @@ export const monasteries = [
     founded: '16th Century',
     hours: '10 AM - 5 PM',
     lodging: 'Guest house available',
-    meals: 'Basic vegetarian meals'
+    meals: 'Basic vegetarian meals',
+    panoramaUrl: "https://www.google.com/maps/embed?pb=!4v1628608304724!6m8!1m7!1sCAoSLEFGMVFpcE5qV2l3eF9hbV9OU3BqZ3pfM3Z0X3g2bVd2Zk5tV25sYlRzZ25C!2m2!1d27.3065!2d88.5724!3f238.5!4f-12.5!5f0.7820865888274683"
   },
   {
     id: 'pemayangtse',
@@ -21,21 +22,23 @@ export const monasteries = [
     founded: '1705',
     hours: '9 AM - 6 PM',
     lodging: 'Nearby hotels in Pelling',
-    meals: 'Local eateries nearby'
+    meals: 'Local eateries nearby',
+    panoramaUrl: "https://www.google.com/maps/embed?pb=!4v1628608392576!6m8!1m7!1sCAoSLEFGMVFpcE5SOFhZbWstZHRRM1FzZ2dfWG5sZnFzX2VWS1JCMVd4Z3dYc1pT!2m2!1d27.3013!2d88.2562!3f238.5!4f-12.5!5f0.7820865888274683"
   },
   {
     id: 'tashiding',
     name: 'Tashiding Monastery',
     description: 'Considered the most sacred and holy monastery in Sikkim, it is perched on a heart-shaped hill. It is the site of the famous Bhumchu festival.',
-    imageId: 'monastery-3',
+    imageId: 'tashiding-monastery',
     mapPosition: { top: '65%', left: '35%' },
     coords: { lat: 27.2625, lng: 88.3003 },
     founded: '1641',
     hours: '8 AM - 5 PM',
     lodging: 'Limited home-stays',
-    meals: 'Basic local food'
+    meals: 'Basic local food',
+    panoramaUrl: "https://www.google.com/maps/embed?pb=!4v1628608435252!6m8!1m7!1sCAoSLEFGMVFpcE9CUXZzZ0tKN25fM2FwR1JLVXl5X3hYVUtcQzZ0M1Z2Z2pZYjVY!2m2!1d27.2625!2d88.3003!3f238.5!4f-12.5!5f0.7820865888274683"
   },
-    {
+  {
     id: 'enchey',
     name: 'Enchey Monastery',
     description: 'Located in Gangtok, the 200-year-old Enchey Monastery is an important seat of the Nyingma order. Its name means "solitary temple".',
@@ -45,9 +48,10 @@ export const monasteries = [
     founded: '1909',
     hours: '9 AM - 6 PM',
     lodging: 'Hotels in Gangtok',
-    meals: 'Restaurants in Gangtok'
+    meals: 'Restaurants in Gangtok',
+    panoramaUrl: "https://www.google.com/maps/embed?pb=!4v1628608471331!6m8!1m7!1sCAoSLEFGMVFpcE5LSXlOdDdfX25RM3RzZ0ZfN2hNVWJ2X193Z1RCbVYtMlpZd3hF!2m2!1d27.3396!2d88.6163!3f238.5!4f-12.5!5f0.7820865888274683"
   },
-    {
+  {
     id: 'dubdi',
     name: 'Dubdi Monastery',
     description: 'Also known as the Yuksom Monastery, Dubdi is considered the first monastery to have been built in Sikkim. It\'s a beautiful trek to reach it.',
@@ -57,7 +61,8 @@ export const monasteries = [
     founded: '1701',
     hours: '8 AM - 4 PM',
     lodging: 'Hotels in Yuksom',
-    meals: 'Local eateries in Yuksom'
+    meals: 'Local eateries in Yuksom',
+    panoramaUrl: "https://www.google.com/maps/embed?pb=!4v1628608502844!6m8!1m7!1sCAoSLEFGMVFpcE5LUXlZemdfbDRyU0ZzZ0ZfWG5sZnFzX2VWS1JCMVd4Z3dYc1pT!2m2!1d27.3592!2d88.2299!3f238.5!4f-12.5!5f0.7820865888274683"
   }
 ];
 
