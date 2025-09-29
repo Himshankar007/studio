@@ -169,28 +169,40 @@ export default function Home() {
             </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300">
-              <Card className="bg-card rounded-2xl shadow p-6 text-center text-card-foreground cursor-pointer h-full">
-                  <div className="text-4xl">📖</div>
-                  <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.manuscripts.title')}</h3>
-                  <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.manuscripts.count')}</p>
-                  <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.manuscripts.description')}</p>
+            <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300 group">
+              <Card className="bg-card rounded-2xl shadow text-card-foreground cursor-pointer h-full overflow-hidden">
+                  <div className="relative h-40">
+                    <Image src={placeholderImages.find(p => p.id === 'preservation-manuscripts')?.imageUrl || ''} alt="Ancient Manuscripts" fill className="object-cover group-hover:scale-110 transition-transform duration-300" data-ai-hint="ancient manuscript"/>
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.manuscripts.title')}</h3>
+                    <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.manuscripts.count')}</p>
+                    <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.manuscripts.description')}</p>
+                  </div>
               </Card>
             </Link>
-             <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300">
-              <Card className="bg-card rounded-2xl shadow p-6 text-center text-card-foreground cursor-pointer h-full">
-                  <div className="text-4xl">🖼️</div>
-                  <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.murals.title')}</h3>
-                  <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.murals.count')}</p>
-                  <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.murals.description')}</p>
+             <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300 group">
+              <Card className="bg-card rounded-2xl shadow text-card-foreground cursor-pointer h-full overflow-hidden">
+                  <div className="relative h-40">
+                    <Image src={placeholderImages.find(p => p.id === 'preservation-murals')?.imageUrl || ''} alt="Sacred Murals" fill className="object-cover group-hover:scale-110 transition-transform duration-300" data-ai-hint="monastery mural"/>
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.murals.title')}</h3>
+                    <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.murals.count')}</p>
+                    <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.murals.description')}</p>
+                  </div>
               </Card>
             </Link>
-             <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300">
-              <Card className="bg-card rounded-2xl shadow p-6 text-center text-card-foreground cursor-pointer h-full">
-                  <div className="text-4xl">📜</div>
-                  <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.records.title')}</h3>
-                  <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.records.count')}</p>
-                  <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.records.description')}</p>
+             <Link href="/culture" className="block transform hover:scale-105 transition-transform duration-300 group">
+              <Card className="bg-card rounded-2xl shadow text-card-foreground cursor-pointer h-full overflow-hidden">
+                   <div className="relative h-40">
+                    <Image src={placeholderImages.find(p => p.id === 'preservation-records')?.imageUrl || ''} alt="Historical Records" fill className="object-cover group-hover:scale-110 transition-transform duration-300" data-ai-hint="monastery records"/>
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-semibold mt-4">{t('preservation.cards.records.title')}</h3>
+                    <p className="text-accent text-sm font-medium mt-1">{t('preservation.cards.records.count')}</p>
+                    <p className="text-muted-foreground text-sm mt-3">{t('preservation.cards.records.description')}</p>
+                  </div>
               </Card>
             </Link>
         </div>

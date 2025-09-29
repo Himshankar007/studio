@@ -106,5 +106,23 @@
     "description": "A high-quality print of a Thangka painting.",
     "imageUrl": "https://picsum.photos/seed/product8/400/300",
     "imageHint": "Thangka print"
+  },
+  {
+    "id": "preservation-manuscripts",
+    "description": "An ancient, sacred manuscript scroll in a monastery library.",
+    "imageUrl": "https://picsum.photos/seed/manuscript-scroll/600/400",
+    "imageHint": "ancient manuscript"
+  },
+  {
+    "id": "preservation-murals",
+    "description": "A colorful and detailed mural on a monastery wall.",
+    "imageUrl": "https://picsum.photos/seed/mural-painting/600/400",
+    "imageHint": "monastery mural"
+  },
+  {
+    "id": "preservation-records",
+    "description": "Old historical records and documents in a monastery archive.",
+    "imageUrl": "https://picsum.photos/seed/historical-records/600/400",
+    "imageHint": "monastery records"
   }
 ]
