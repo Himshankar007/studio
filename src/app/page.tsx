@@ -13,17 +13,13 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative w-full h-[60vh] md:h-[80vh] text-white overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <iframe
+          src="https://player.vimeo.com/video/1121483340?background=1&autoplay=1&loop=1&byline=0&title=0"
           className="absolute top-0 left-0 w-full h-full object-cover"
-          poster="https://picsum.photos/seed/hero-sikkim/1920/1080"
-        >
-          <source src="https://videos.pexels.com/video-files/5199155/5199155-hd_1920_1080_25fps.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+          allowFullScreen
+        ></iframe>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold !leading-tight tracking-tight">
