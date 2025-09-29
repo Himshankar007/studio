@@ -67,7 +67,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {monasteries.slice(0, 3).map(monastery => {
+            {monasteries.map(monastery => {
               const image = placeholderImages.find(p => p.id === monastery.imageId);
               return (
                 <Card key={monastery.id} className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white rounded-xl">
