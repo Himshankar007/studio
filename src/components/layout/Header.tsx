@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -9,6 +10,13 @@ import { DharmaWheelIcon } from '@/components/icons';
 import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import { Input } from '../ui/input';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 
 const navLinks = [
   { href: '/monasteries', label: 'Monasteries' },
@@ -71,7 +79,19 @@ const Header = () => {
         <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center gap-2">
                 <Input type="text" placeholder="Search" className="bg-transparent text-white border-white placeholder:text-gray-300 h-8 text-shadow" />
-                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">🌐</Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">🌐</Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem>English</DropdownMenuItem>
+                    <DropdownMenuItem>Hindi</DropdownMenuItem>
+                    <DropdownMenuItem>Telugu</DropdownMenuItem>
+                    <DropdownMenuItem>Nepali</DropdownMenuItem>
+                    <DropdownMenuItem>Sikkimese (Bhutia)</DropdownMenuItem>
+                    <DropdownMenuItem>Lepcha</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-black h-8">Explore Now</Button>
             </div>
 
