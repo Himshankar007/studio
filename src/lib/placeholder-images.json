@@ -14,32 +14,32 @@
   {
     "id": "monastery-1",
     "description": "The grand structure of Rumtek Monastery.",
-    "imageUrl": "https://picsum.photos/seed/monastery1/600/400",
-    "imageHint": "Sikkim monastery"
+    "imageUrl": "https://picsum.photos/seed/rumtek-monastery/600/400",
+    "imageHint": "Rumtek monastery"
   },
   {
     "id": "monastery-2",
     "description": "Pemayangtse Monastery with a view of mountains.",
-    "imageUrl": "https://picsum.photos/seed/monastery2/600/400",
-    "imageHint": "Sikkim mountains"
+    "imageUrl": "https://picsum.photos/seed/pemayangtse-monastery/600/400",
+    "imageHint": "Pemayangtse mountains"
   },
   {
     "id": "monastery-3",
     "description": "The sacred Tashiding Monastery on a hilltop.",
-    "imageUrl": "https://picsum.photos/seed/monastery3/600/400",
-    "imageHint": "hilltop monastery"
+    "imageUrl": "https://picsum.photos/seed/tashiding-monastery/600/400",
+    "imageHint": "Tashiding hilltop"
   },
   {
     "id": "monastery-4",
     "description": "The colorful facade of Enchey Monastery in Gangtok.",
-    "imageUrl": "https://picsum.photos/seed/monastery4/600/400",
-    "imageHint": "colorful monastery"
+    "imageUrl": "https://picsum.photos/seed/enchey-monastery/600/400",
+    "imageHint": "Enchey monastery"
   },
   {
     "id": "monastery-5",
     "description": "The ancient and serene Dubdi Monastery.",
-    "imageUrl": "https://picsum.photos/seed/monastery5/600/400",
-    "imageHint": "ancient monastery"
+    "imageUrl": "https://picsum.photos/seed/dubdi-monastery/600/400",
+    "imageHint": "Dubdi monastery"
   },
   {
     "id": "experience-1",
