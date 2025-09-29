@@ -76,6 +76,7 @@ export default function Home() {
                         <Image
                             src={image.imageUrl}
                             alt={monastery.name}
+                            data-ai-hint={image.imageHint}
                             fill
                             className="object-cover"
                         />
@@ -107,49 +108,58 @@ export default function Home() {
         </div>
       </section>
 
-        <section className="bg-background py-12 text-foreground">
-        <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary font-headline">
-                {t('geography.title')}
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t('geography.description')}
-            </p>
+      <section className="relative bg-background py-12 text-foreground overflow-hidden">
+        <iframe
+          src="https://player.vimeo.com/video/1122880500?background=1&autoplay=1&loop=1&byline=0&title=0"
+          className="absolute top-1/2 left-1/2 w-full h-full min-w-[177.78vh] min-h-[56.25vw] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+        ></iframe>
+        <div className="absolute inset-0 bg-black/70 z-10" />
+        <div className="relative z-20 text-white">
+          <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-primary font-headline">
+                  {t('geography.title')}
+              </h2>
+              <p className="mt-4 text-lg max-w-2xl mx-auto">
+                  {t('geography.description')}
+              </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 max-w-6xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow p-10 flex flex-col items-center justify-center">
+                  <Map className="text-primary text-5xl mb-6 h-16 w-16"/>
+                  <h3 className="text-2xl font-bold mb-2 font-headline">{t('geography.map.title')}</h3>
+                  <p className="mb-6 text-center">
+                      {t('geography.map.description')}
+                  </p>
+                  <Button asChild className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90">
+                      <Link href="/monasteries">{t('geography.map.cta')}</Link>
+                  </Button>
+              </div>
+              <div className="flex flex-col gap-6">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow p-6 flex items-start space-x-4">
+                      <div className="text-primary text-2xl">📍</div>
+                      <div>
+                          <h4 className="font-bold text-lg">{t('geography.features.locations.title')}</h4>
+                          <p className="text-sm">
+                              {t('geography.features.locations.description')}
+                          </p>
+                      </div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow p-6 flex items-start space-x-4">
+                      <div className="text-accent text-2xl">🧭</div>
+                      <div>
+                          <h4 className="font-bold text-lg">{t('geography.features.routes.title')}</h4>
+                          <p className="text-sm">
+                              {t('geography.features.routes.description')}
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 max-w-6xl mx-auto">
-            <div className="bg-gradient-to-b from-card to-background rounded-2xl shadow p-10 flex flex-col items-center justify-center">
-                <Map className="text-primary text-5xl mb-6 h-16 w-16"/>
-                <h3 className="text-2xl font-bold mb-2 font-headline">{t('geography.map.title')}</h3>
-                <p className="text-muted-foreground mb-6 text-center">
-                    {t('geography.map.description')}
-                </p>
-                <Button asChild className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90">
-                    <Link href="/monasteries">{t('geography.map.cta')}</Link>
-                </Button>
-            </div>
-            <div className="flex flex-col gap-6">
-                <div className="bg-card rounded-2xl shadow p-6 flex items-start space-x-4">
-                    <div className="text-primary text-2xl">📍</div>
-                    <div>
-                        <h4 className="font-bold text-lg">{t('geography.features.locations.title')}</h4>
-                        <p className="text-muted-foreground text-sm">
-                            {t('geography.features.locations.description')}
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-card rounded-2xl shadow p-6 flex items-start space-x-4">
-                    <div className="text-accent text-2xl">🧭</div>
-                    <div>
-                        <h4 className="font-bold text-lg">{t('geography.features.routes.title')}</h4>
-                        <p className="text-muted-foreground text-sm">
-                            {t('geography.features.routes.description')}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      </section>
 
     <section className="py-16 px-6 bg-secondary text-foreground">
         <div className="text-center mb-12">
