@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Link from 'next/link';
@@ -31,8 +32,6 @@ const Header = () => {
     { href: '/#video-section', label: t('nav.virtualTour') },
     { href: '/monasteries', label: t('nav.maps') },
     { href: '/culture', label: t('nav.archives') },
-    { href: '/#calendar', label: t('nav.calendar') },
-    { href: '/#audio-guide', label: t('nav.audioGuide') },
   ];
 
   useEffect(() => {
