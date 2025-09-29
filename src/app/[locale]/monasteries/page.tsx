@@ -6,9 +6,9 @@ export default function MonasteriesPage() {
   const t = useTranslations('MonasteriesPage');
 
   return (
-    <div>
-      <section className="relative w-full py-12 md:py-20 text-white bg-secondary">
-        <div className="container mx-auto px-4 z-10 flex flex-col items-center justify-center h-full text-center">
+    <div className="flex flex-col h-[calc(100vh-70px)]">
+      <section className="py-8 md:py-12 text-center bg-secondary">
+        <div className="container mx-auto px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold flex items-center justify-center gap-4 text-primary">
             <Landmark className="w-10 h-10 text-primary" />
             {t('title')}
@@ -19,7 +19,7 @@ export default function MonasteriesPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8 md:py-16">
+      <div className="flex-grow">
         <MonasteryMap />
       </div>
     </div>

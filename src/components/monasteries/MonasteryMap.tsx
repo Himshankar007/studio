@@ -36,10 +36,10 @@ export function MonasteryMap() {
   };
   
   return (
-    <Card className="shadow-2xl">
-      <CardContent className="p-0">
-        <div className="grid grid-cols-1 lg:grid-cols-3">
-          <ScrollArea className="h-[40vh] lg:h-auto lg:max-h-[80vh] border-r">
+    <Card className="shadow-2xl w-full h-full border-0 rounded-none">
+      <CardContent className="p-0 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-4 h-full">
+          <ScrollArea className="h-full lg:max-h-full border-r">
             <div className="p-4 space-y-2">
               {monasteries.map((monastery) => (
                 <div
@@ -60,10 +60,10 @@ export function MonasteryMap() {
             </div>
           </ScrollArea>
           
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3 h-full">
             {selectedMonastery ? (
-              <div className="animate-in fade-in duration-500">
-                <div className="relative aspect-video lg:aspect-auto lg:h-[60vh] w-full bg-secondary rounded-lg overflow-hidden border">
+              <div className="animate-in fade-in duration-500 flex flex-col h-full">
+                <div className="relative w-full h-3/5 bg-secondary border-b">
                     <iframe
                         src={selectedMonastery.panoramaUrl}
                         width="100%"
@@ -74,19 +74,21 @@ export function MonasteryMap() {
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
-                <div className="p-4 md:p-6">
-                    <h2 className="font-headline text-3xl font-bold text-primary">{selectedMonastery.name}</h2>
-                    <p className="mt-2 text-muted-foreground">{selectedMonastery.description}</p>
-                    <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
-                        <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary"/> <strong>Founded:</strong> {selectedMonastery.founded}</div>
-                        <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary"/> <strong>Visiting Hours:</strong> {selectedMonastery.hours}</div>
-                        <div className="flex items-center gap-2"><Bed className="w-4 h-4 text-primary"/> <strong>Lodging:</strong> {selectedMonastery.lodging}</div>
-                        <div className="flex items-center gap-2"><Utensils className="w-4 h-4 text-primary"/> <strong>Meals:</strong> {selectedMonastery.meals}</div>
-                    </div>
-                </div>
+                <ScrollArea className="h-2/5">
+                  <div className="p-4 md:p-6">
+                      <h2 className="font-headline text-3xl font-bold text-primary">{selectedMonastery.name}</h2>
+                      <p className="mt-2 text-muted-foreground">{selectedMonastery.description}</p>
+                      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                          <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary"/> <strong>Founded:</strong> {selectedMonastery.founded}</div>
+                          <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary"/> <strong>Visiting Hours:</strong> {selectedMonastery.hours}</div>
+                          <div className="flex items-center gap-2"><Bed className="w-4 h-4 text-primary"/> <strong>Lodging:</strong> {selectedMonastery.lodging}</div>
+                          <div className="flex items-center gap-2"><Utensils className="w-4 h-4 text-primary"/> <strong>Meals:</strong> {selectedMonastery.meals}</div>
+                      </div>
+                  </div>
+                </ScrollArea>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center p-8 text-center text-muted-foreground h-[80vh]">
+              <div className="flex flex-col items-center justify-center p-8 text-center text-muted-foreground h-full">
                 <Info className="w-12 h-12 mb-4" />
                 <h3 className="font-bold text-lg">Select a Monastery to Explore</h3>
                 <p>Click on a monastery from the list to see a 360° view and details.</p>
